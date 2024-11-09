@@ -1,14 +1,17 @@
 import React from 'react';
 
-const Contacts = ({ contactschange }) => {
-  const contacts = contactschange();
+const Contacts = ({ contactsChange, deleteContacts }) => {
+  const contacts = contactsChange();
   return (
     <>
       <div>Contacts</div>
       {contacts.map(obj => {
         return (
           <div key={obj.id}>
-            {obj.name} : {obj.number}
+            {obj.name} : {obj.number}{' '}
+            <button name={obj.name} onClick={deleteContacts}>
+              Delete
+            </button>
           </div>
         );
       })}
